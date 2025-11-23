@@ -69,10 +69,6 @@ public/
     └── product.js              # JavaScript untuk DataTables dan modal
 ```
 
-## Screenshot
-
-Screenshot tampilan aplikasi tersedia di file PDF dokumentasi.
-
 ## Catatan
 
 - Data produk bersifat dummy dan tidak tersimpan ke database sesuai requirement test
