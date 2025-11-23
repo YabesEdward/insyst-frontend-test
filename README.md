@@ -1,35 +1,34 @@
-# Insyst Backend Test - Product & Transaction Management API
+# Insyst Frontend Test - Product Management Interface
 
-RESTful API untuk manajemen produk dan transaksi pembelian menggunakan Laravel 11.
+Interface manajemen produk menggunakan Laravel Blade, Bootstrap 5, dan DataTables.
 
 ## Deskripsi
 
-API ini dibuat sebagai bagian dari technical assessment Insyst untuk posisi Backend Developer Intern. API menyediakan endpoint CRUD untuk produk dan transaksi dengan validasi stok otomatis.
+Aplikasi web ini dibuat sebagai bagian dari technical assessment Insyst untuk posisi Frontend Developer Intern. Aplikasi menampilkan tabel produk dengan fitur search, sorting, dan pagination menggunakan DataTables.
 
 ## Fitur
 
-- CRUD Products (Create, Read, Update, Delete)
-- Soft Delete untuk products dan transactions
-- Validasi input di setiap endpoint
-- POST Transactions dengan validasi stok
-- Perhitungan total harga otomatis
-- Pengurangan stok otomatis setelah transaksi berhasil
-- Relasi foreign key antara products dan transactions
-- Response JSON di semua endpoint
+- Halaman tabel produk dengan data dummy
+- DataTables dengan fitur search, sort, dan pagination
+- Modal form untuk tambah produk
+- Layout responsif dengan Bootstrap 5
+- Validasi form sederhana
+- Sticky footer
+- File JavaScript terpisah untuk maintainability
 
 ## Tech Stack
 
 - Laravel 11
-- MySQL 8.4.3
-- Eloquent ORM
-- RESTful API Architecture
+- Bootstrap 5
+- DataTables 1.13.6
+- jQuery 3.7.0
 
 ## Cara Instalasi
 
 1. Clone repository
 ```bash
-git clone https://github.com/YabesEdward/insyst-backend-test.git
-cd insyst-backend-test
+git clone https://github.com/YabesEdward/insyst-frontend-test.git
+cd insyst-frontend-test
 ```
 
 2. Install dependencies
@@ -47,50 +46,43 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-5. Setup database di `.env`
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=insyst_backend
-DB_USERNAME=root
-DB_PASSWORD=
-```
-
-6. Buat database `insyst_backend` di MySQL
-
-7. Jalankan migration
-```bash
-php artisan migrate
-```
-
-8. Jalankan server
+5. Jalankan server
 ```bash
 php artisan serve
 ```
 
-Server akan berjalan di `http://localhost:8000`
+6. Buka browser dan akses
+```
+http://localhost:8000/products
+```
 
-## API Endpoints
+## Struktur File
+```
+resources/
+├── views/
+│   ├── layouts/
+│   │   └── app.blade.php       # Layout utama
+│   └── product/
+│       └── index.blade.php     # Halaman produk
+public/
+└── js/
+    └── product.js              # JavaScript untuk DataTables dan modal
+```
 
-### Products
+## Screenshot
 
-- `GET /api/products` - Ambil semua produk
-- `POST /api/products` - Tambah produk baru
-- `PUT /api/products/{id}` - Update produk
-- `DELETE /api/products/{id}` - Hapus produk (soft delete)
+Screenshot tampilan aplikasi tersedia di file PDF dokumentasi.
 
-### Transactions
+## Catatan
 
-- `POST /api/transactions` - Buat transaksi pembelian
-
-## Testing
-
-Testing dilakukan menggunakan Postman. Collection dan dokumentasi lengkap tersedia di file PDF.
+- Data produk bersifat dummy dan tidak tersimpan ke database sesuai requirement test
+- Modal hanya menampilkan alert untuk demo
+- Semua styling menggunakan Bootstrap 5
+- DataTables menggunakan bahasa Indonesia
 
 ## Dokumentasi
 
-Dokumentasi lengkap dengan screenshot dan penjelasan struktur kode tersedia di file `YabesEdwardSihombing_BackendTest.pdf`.
+Dokumentasi lengkap dengan screenshot dan penjelasan fungsi file tersedia di file `YabesEdwardSihombing_FrontendTest.pdf`.
 
 ## Author
 
